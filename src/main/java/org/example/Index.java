@@ -61,7 +61,11 @@ public class Index extends HttpServlet {
           color="darksalmon";
           break;
       }
+
+      resp.setContentType("text/html");
+      String header = "<!Document html>\n<HTML><HEAD><title>Demo Talka Jetty</title></HEAD><BODY>";
+      String footer = "</BODY></HTML>";
       String circle = "<div style=\"background-color: "+color+"; border-radius: 50%;  width: 100px; height: 100px;\"></div>";
-      resp.getWriter().print(String.format("Powered by %s\nRelease %s on %s\n %s", message, release, container, circle));
+      resp.getWriter().print(String.format("%s Powered by %s\nRelease %s on %s\n %s %s", header,message, release, container, circle, footer));
   }
 }
