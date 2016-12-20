@@ -28,7 +28,7 @@ public class Index extends HttpServlet {
         container = s.next();
       }
       String color="";
-      int digitColor=((int)Integer.parseInt(container.trim(), 16 ) % 10);
+      int digitColor=(int)(Long.parseLong(container.toUpperCase().trim(), 16 ) % 10);
       switch (digitColor) {
         case 0:
           color="red";
