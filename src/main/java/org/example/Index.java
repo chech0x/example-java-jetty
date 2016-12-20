@@ -27,7 +27,41 @@ public class Index extends HttpServlet {
       if (s.hasNext()) {
         container = s.next();
       }
-
-      resp.getWriter().print(String.format("Powered by %s\nRelease %s on %s\n", message, release, container));
+      String color="";
+      int digitColor=((int)Integer.parseInt(container, 16 ) % 10);
+      switch (digitColor) {
+        case 0:
+          color="red";
+          break;
+        case 1:
+          color="blue";
+          break;
+        case 2:
+          color="yellowgreen";
+          break;
+        case 3:
+          color="blueviolet";
+          break;
+        case 4:
+          color="yellow";
+          break;
+        case 5:
+          color="coral";
+          break;
+        case 6:
+          color="green";
+          break;
+        case 7:
+          color="brown";
+          break;
+        case 8:
+          color="black";
+          break;
+        case 9:
+          color="darksalmon";
+          break;
+      }
+      String circle = "<div style=\"background-color: "+color+"; border-radius: 50%;  width: 100px; height: 100px;\"></div>";
+      resp.getWriter().print(String.format("Powered by %s\nRelease %s on %s\n %s", message, release, container, circle));
   }
 }
