@@ -12,7 +12,7 @@ public class Index extends HttpServlet {
           throws ServletException, IOException {
       String message = System.getenv("POWERED_BY");
       if (message == null) {
-          message = "NN";
+          message = "nn";
       }
 
       String release = System.getenv("WORKFLOW_RELEASE");
