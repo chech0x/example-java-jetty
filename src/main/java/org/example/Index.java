@@ -29,7 +29,7 @@ public class Index extends HttpServlet {
       }
       String color="#"+container.toUpperCase().trim().substring(0,6);
       resp.setContentType("text/html");
-      String header = "<!Document html>\n<HTML><HEAD><title>Demo Talka Jetty</title></HEAD><BODY>";
+      String header = "<!Document html>\n<HTML><HEAD><title>Demo Talka Jetty v0.1</title></HEAD><BODY>";
       String footer = "</BODY></HTML>";
       String circle = "<div style=\"background-color: "+color+"; border-radius: 50%;  width: 100px; height: 100px;\"></div>";
       resp.getWriter().print(String.format("%s Powered by %s\nRelease %s on %s\n %s %s", header,message, release, container, circle, footer));
