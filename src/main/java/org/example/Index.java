@@ -28,40 +28,6 @@ public class Index extends HttpServlet {
         container = s.next();
       }
       String color="#"+container.toUpperCase().trim().substring(0,6);
-/*      int digitColor=(int)(Long.parseLong(container.toUpperCase().trim(), 16 ) % 10);
-      switch (digitColor) {
-        case 0:
-          color="red";
-          break;
-        case 1:
-          color="blue";
-          break;
-        case 2:
-          color="yellowgreen";
-          break;
-        case 3:
-          color="blueviolet";
-          break;
-        case 4:
-          color="yellow";
-          break;
-        case 5:
-          color="coral";
-          break;
-        case 6:
-          color="green";
-          break;
-        case 7:
-          color="brown";
-          break;
-        case 8:
-          color="black";
-          break;
-        case 9:
-          color="darksalmon";
-          break;
-      }
-*/
       resp.setContentType("text/html");
       String header = "<!Document html>\n<HTML><HEAD><title>Demo Talka Jetty</title></HEAD><BODY>";
       String footer = "</BODY></HTML>";
