@@ -27,8 +27,8 @@ public class Index extends HttpServlet {
       if (s.hasNext()) {
         container = s.next();
       }
-      String color="";
-      int digitColor=(int)(Long.parseLong(container.toUpperCase().trim(), 16 ) % 10);
+      String color="#"+container.toUpperCase().trim().substring(0,6);
+/*      int digitColor=(int)(Long.parseLong(container.toUpperCase().trim(), 16 ) % 10);
       switch (digitColor) {
         case 0:
           color="red";
@@ -61,7 +61,7 @@ public class Index extends HttpServlet {
           color="darksalmon";
           break;
       }
-
+*/
       resp.setContentType("text/html");
       String header = "<!Document html>\n<HTML><HEAD><title>Demo Talka Jetty</title></HEAD><BODY>";
       String footer = "</BODY></HTML>";
