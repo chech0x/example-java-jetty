@@ -18,14 +18,6 @@
       <version>9.3.9.v20160517</version>
     </dependency>
   </dependencies>
-  <mirrors>
-    <mirror>
-      <id>mirror</id>
-      <name>mirror</name>
-      <url>http://artifactory-s.kvz.local:8081/artifactory/repo</url>
-      <mirrorOf>central</mirrorOf>
-    </mirror>
-  </mirrors>
   <build>
     <plugins>
       <plugin>
