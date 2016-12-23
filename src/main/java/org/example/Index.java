@@ -56,7 +56,7 @@ public class Index extends HttpServlet {
       html=html+"                    <header class=\"card card-2\">";
       html=html+"                        <h1>Corriendo sobre: "+message+"</h1>";
       html=html+"                        <h2>Release: "+release+"</h1>";
-      html=html+"                        <p>Esta aplicación se encuentra corriendo en una nube de tipo <strong>PaaS privada</strong>, basada en <strong>contenedores</strong></p>";
+      html=html+"                        <p>Esta aplicaci&oacute;n se encuentra corriendo en una nube de tipo <strong>PaaS privada</strong>, basada en <strong>contenedores</strong></p>";
       html=html+"                    </header>";
       html=html+"                    <section>";
       html=html+"                      <div class=\"circulo card-1\" style=\"background-color: "+color+";\"></div>";
@@ -64,7 +64,7 @@ public class Index extends HttpServlet {
       html=html+"                </article>";
       html=html+"                <aside class=\"card card-1\">";
       html=html+"                      <h3>Contenedor: "+container+"</h3>";
-      html=html+"                      <p>En este momomento esta petición fue resulta por el contenedor <strong>"+container+"</strong>. El color utilizado para representarlo es: <span style=\"background-color:white;color:"+color+"\"><strong>&nbsp;"+color+"&nbsp;</strong></span></p>";
+      html=html+"                      <p>En este momomento esta petici&oacute;n fue resulta por el contenedor <strong>"+container+"</strong>. El color utilizado para representarlo es: <span style=\"background-color:white;color:"+color+"\"><strong>&nbsp;"+color+"&nbsp;</strong></span></p>";
       html=html+"                </aside>";
       html=html+"            </div>";
       html=html+"        </div>";
@@ -76,6 +76,6 @@ public class Index extends HttpServlet {
       html=html+"        <script src=\"js/main.js\"></script>";
       html=html+"    </body>";
       html=html+"</html>";
-      resp.getWriter().print(html);*/
+      resp.getWriter().print(html);
   }
 }
