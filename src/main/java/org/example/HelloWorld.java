@@ -35,6 +35,6 @@ public class HelloWorld {
     }
 
     public String resolveStaticFolder(String subPath){
-      return this.getClass().getClassLoader().getResource("static/"+subPath).getFile().getAbsolutePath();
+      return new File(this.getClass().getClassLoader().getResource("static/"+subPath).getFile()).getAbsolutePath();
     }
 }
