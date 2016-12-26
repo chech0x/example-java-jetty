@@ -19,7 +19,11 @@ public class HelloWorld {
         server.setHandler(context);
         context.addServlet(new ServletHolder(new Healthcheck()),"/healthz");
         context.addServlet(new ServletHolder(new Index()),"/");
-        context.addServlet(new ServletHolder(new DefaultServlet()),"/*");
+        ServletHolder holderHome = new ServletHolder(new DefaultServlet() ,"/*");
+      //  holderHome.setInitParameter("resourceBase",conext.);
+        holderHome.setInitParameter("dirAllowed","true");
+        holderHome.setInitParameter("pathInfoOnly","true");
+        context.addServlet(holderHome);
         server.start();
         server.join();
     }
