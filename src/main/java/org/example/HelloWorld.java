@@ -2,6 +2,7 @@ import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
 import org.eclipse.jetty.util.resource.Resource;
+import org.eclipse.jetty.servlet.DefaultServlet;
 
 public class HelloWorld {
     public static void main(String[] args) throws Exception{
@@ -17,7 +18,8 @@ public class HelloWorld {
         context.setBaseResource(Resource.newClassPathResource("static"));
         server.setHandler(context);
         context.addServlet(new ServletHolder(new Healthcheck()),"/healthz");
-        context.addServlet(new ServletHolder(new Index()),"/*");
+        context.addServlet(new ServletHolder(new Index()),"/");
+        context.addServlet(new ServletHolder(new DefaultServlet()),"/*");
         server.start();
         server.join();
     }
