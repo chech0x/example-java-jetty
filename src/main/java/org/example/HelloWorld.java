@@ -22,10 +22,10 @@ public class HelloWorld {
         context.setBaseResource(Resource.newClassPathResource("static"));
         server.setHandler(context);
         context.addServlet(new ServletHolder(new Healthcheck()),"/healthz");
-        context.addServlet(new ServletHolder(new Index()),"/");
         addStaticHandler(context,"css");
         addStaticHandler(context,"img");
         addStaticHandler(context,"js");
+        context.addServlet(new ServletHolder(new Index()),"/*");
         server.start();
         server.join();
     }
