@@ -19,12 +19,22 @@ public class HelloWorld {
         server.setHandler(context);
         context.addServlet(new ServletHolder(new Healthcheck()),"/healthz");
         context.addServlet(new ServletHolder(new Index()),"/");
-        ServletHolder holderHome = new ServletHolder(new DefaultServlet());
-      //  holderHome.setInitParameter("resourceBase",conext.);
-        holderHome.setInitParameter("dirAllowed","true");
-        holderHome.setInitParameter("pathInfoOnly","true");
-        context.addServlet(holderHome,"/*");
+        addStaticHandler("css");
+        addStaticHandler("img");
+        addStaticHandler("js");
         server.start();
         server.join();
+    }
+
+    public void addStaticHandler(ServletContextHandler context, String subPath){
+      ServletHolder holderHome = new ServletHolder(new DefaultServlet());
+      holderHome.setInitParameter("resourceBase",resolveStaticFolder(subPath));
+      holderHome.setInitParameter("dirAllowed","true");
+      holderHome.setInitParameter("pathInfoOnly","true");
+      context.addServlet(holderHome,"/"+subPath+"/*");
+    }
+
+    public String resolveStaticFolder(String subPath){
+      return this.getClass().getClassLoader().getResource("static/"+subPath).getFile().getAbsolutePath();
     }
 }
