@@ -28,6 +28,7 @@ public class HelloWorld {
         addStaticHandler(context,"js");
         addStaticHandler(context,"");
         context.addServlet(new ServletHolder(new Index()),"/demo");
+        context.addServlet(new ServletHolder(new CurrentTime()),"/time");
         server.start();
         server.join();
     }
