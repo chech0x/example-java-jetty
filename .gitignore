@@ -1,7 +1,7 @@
 .classpath
 .project
 .settings/
-static/
+/static/
 *.class
 
 # Package Files #
@@ -9,4 +9,4 @@ static/
 *.war
 *.ear
 
-target
+/target

@@ -1,6 +1,7 @@
 package org.example;
 
 import java.io.File;
+import java.net.URL;
 
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.DefaultServlet;
@@ -25,7 +26,8 @@ public class HelloWorld {
         addStaticHandler(context,"css");
         addStaticHandler(context,"img");
         addStaticHandler(context,"js");
-        context.addServlet(new ServletHolder(new Index()),"/*");
+        addStaticHandler(context,"");
+        context.addServlet(new ServletHolder(new Index()),"/demo");
         server.start();
         server.join();
     }
@@ -35,10 +37,19 @@ public class HelloWorld {
       holderHome.setInitParameter("resourceBase",resolveStaticFolder(subPath));
       holderHome.setInitParameter("dirAllowed","true");
       holderHome.setInitParameter("pathInfoOnly","true");
-      context.addServlet(holderHome,"/"+subPath+"/*");
+      String path="/";
+      if(subPath!=null && subPath.trim().length()>0){
+    	  path+=subPath+"/";
+      }
+      path+="*";
+      context.addServlet(holderHome,path);
     }
 
     public static String resolveStaticFolder(String subPath){
-      return new File(HelloWorld.class.getClassLoader().getResource("static/"+subPath).getFile()).getAbsolutePath();
+    	URL classesDirectory = HelloWorld.class.getClassLoader().getResource(".");
+    	if(classesDirectory==null){
+    		return "";
+    	}
+    	return new File(classesDirectory.getFile()).getParentFile().getAbsolutePath()+"/static/"+subPath;
     }
 }
